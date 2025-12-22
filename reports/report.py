@@ -2,12 +2,23 @@ from pathlib import Path
 import subprocess
 from datetime import datetime
 
+
 def full_pipeline():
+    """
+    Generate comprehensive Markdown report demonstrating full ML pipeline execution.
+    
+    Runs all key pipeline commands and captures output:
+    1. Model loading test
+    2. High pollution prediction scenario
+    3. Safe morning prediction scenario
+    
+    Output saved to: reports/full_pipeline_report.md
+    """
     report_path = Path("reports/full_pipeline_report.md")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     
     with open(report_path, 'w') as f:
-        f.write("# ML Pipeline Demo\n\n")
+        f.write("# ML Pipeline Demo Report\n\n")
         f.write("Date: " + str(datetime.now()) + "\n\n")
         f.write("Test Dual Models:\n")
     
@@ -31,13 +42,23 @@ def full_pipeline():
     
     print("Report saved:", report_path)
 
+
 def quick_demo():
+    """
+    Generate concise interview-ready demo report with two prediction scenarios.
+    
+    Demonstrates:
+    1. High pollution evening scenario (18:00, recent PM2.5 ~22 µg/m³)
+    2. Safe morning scenario (09:00, recent PM2.5 ~8 µg/m³)
+    
+    Output saved to: reports/demo_report.md
+    """
     report_path = Path("reports/demo_report.md")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     
     with open(report_path, 'w') as f:
-        f.write("# Frankfurt PM2.5 Demo\n")
-        f.write("MAE: 1.32 | F1: 0.892\n\n")
+        f.write("# Frankfurt PM2.5 Dual-Model Demo\n")
+        f.write("Regressor MAE: 1.32 µg/m³ | Classifier F1: 0.892\n\n")
         f.write("High Pollution:\n")
     
     subprocess.run([
@@ -57,11 +78,25 @@ def quick_demo():
     
     print("Demo saved:", report_path)
 
+
+def generate_report(command: str):
+    """
+    Command dispatcher for report generation.
+    
+    Args:
+        command: Either "full-pipeline" or "quick-demo"
+    """
+    if command == "full-pipeline":
+        full_pipeline()
+    elif command == "quick-demo":
+        quick_demo()
+    else:
+        print("Usage: python report.py full-pipeline | quick-demo")
+
+
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) > 1 and sys.argv[1] == "full-pipeline":
-        full_pipeline()
-    elif len(sys.argv) > 1 and sys.argv[1] == "quick-demo":
-        quick_demo()
+    if len(sys.argv) > 1:
+        generate_report(sys.argv[1])
     else:
         print("Usage: python report.py full-pipeline | quick-demo")
