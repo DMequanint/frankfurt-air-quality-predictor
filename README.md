@@ -9,52 +9,33 @@ Frankfurt PM2.5 forecasting with WHO compliance using OpenAQ API
 ## Project Organization
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+frankfurt-air-quality-predictor/                    # PROJECT ROOT
+├── README.md
+├── requirements.txt
+├── pyproject.toml
+├── LICENSE
+├── .gitignore                                      # CREATE THIS
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── data/
+│   ├── raw/
+│   └── processed/                                 # Keep your CSVs temporarily
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models/                                        # Keep your .pkl files temporarily
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── reports/
+│   └── figures/                                   # Keep your PNG plots
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         frankfurt_air_quality_predictor and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── frankfurt_air_quality_predictor   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes frankfurt_air_quality_predictor a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+└── frankfurt_air_quality_predictor/               # ALL SOURCE CODE
+    ├── __init__.py
+    ├── config.py
+    ├── dataset.py                                 # Data pipeline
+    ├── features.py                                # Feature engineering
+    ├── modeling/
+    │   ├── __init__.py
+    │   ├── train.py                               # Dual XGBoost
+    │   └── predict.py                             # Live predictions
+    └── plots.py                                   # Visualizations
+
 ```
 
 --------
