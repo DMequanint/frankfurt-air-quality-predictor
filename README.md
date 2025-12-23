@@ -32,13 +32,13 @@ Built dual XGBoost models on 17,280 hourly PM2.5 records (2024-2025):
 ## Pipeline Architecture
 
 dataset.py → 17K raw records
-↓
+            ↓
 features.py → 22+ engineered features
-↓
+            ↓
 modeling/train.py → Dual XGBoost models
-↓
+            ↓
 modeling/predict.py → Live predictions
-↓
+            ↓
 plots.py → 3 publication plots
 
 ## Quick Start
