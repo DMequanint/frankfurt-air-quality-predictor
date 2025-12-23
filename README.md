@@ -22,7 +22,7 @@ Built dual XGBoost models on 17,280 hourly PM2.5 records (2024-2025):
 
 **Key Capabilities:**
 - Next-hour PM2.5 concentration forecasting
-- WHO guideline violation detection (>15 µg/m³)
+- WHO guideline exceedance detection (>15 µg/m³)
 - Confidence-scored alerts (92-100% accuracy)
 - Production CLI interface
 
