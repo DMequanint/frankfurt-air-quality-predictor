@@ -4,14 +4,12 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-Frankfurt PM2.5 forecasting with WHO compliance using OpenAQ API
-
-## Project Organization
+Frankfurt PM2.5 forecasting with WHO exceedance detection using OpenAQ API
 
 ```
 # Frankfurt Air Quality Predictor
 
-End-to-end machine learning pipeline forecasting PM2.5 concentrations and WHO guideline violations for Frankfurt, Germany.
+End-to-end machine learning pipeline forecasting PM2.5 concentrations and WHO guideline exceedance detection for Frankfurt, Germany.
 
 ## What It Does
 
@@ -87,6 +85,7 @@ python -m frankfurt_air_quality_predictor.modeling.predict test     # Verify mod
 python -m frankfurt_air_quality_predictor.modeling.predict main     # 100 predictions → CSV
 python -m frankfurt_air_quality_predictor.modeling.predict quick    --hour 18 --rolling-24h 20.5
 
+## Project Organization
 
 frankfurt-air-quality-predictor/                    # PROJECT ROOT
 ├── README.md
